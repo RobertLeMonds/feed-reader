@@ -42,6 +42,7 @@ $(function() {
         it('Name is defineed and is not empty', function() {
             allFeeds.forEach(function(feeds) {
                 expect(feeds.name).toBeDefined();
+                expect(feeds.name).toBeTruthy();
                 expect(feeds.name.length).not.toBe(0);
             });
         });
@@ -60,8 +61,10 @@ $(function() {
 
 
         it('menu changes visibility when the menu icon is clicked', function() {
+
             $('.menu-icon-link').click();
             expect($('body').hasClass('menu-hidden')).toBe(false);
+
             $('.menu-icon-link').click();
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
@@ -76,6 +79,7 @@ $(function() {
 
         it('feed container called and has at least one entry', function() {
             expect($('.feed .entry').length).not.toBe(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
 
         /* Test suite name "New Feed Selection" */
